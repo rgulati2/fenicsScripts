@@ -1,4 +1,3 @@
-#3D Works, sinx1*sinx2 added.
 import matplotlib as mpl
 import pyvista
 import ufl
@@ -13,13 +12,13 @@ from dolfinx.fem.petsc import assemble_vector, assemble_matrix, create_vector, a
 # Define temporal parameters
 t = 0  # Start time
 T = 1.0  # Final time
-num_steps = 10
+num_steps = 100
 dt = T / num_steps  # time step size
 dim = 2
 
 # Define mesh
 if dim == 2:
-        nx, ny = 50, 50
+        nx, ny = 127, 127
         #domain = mesh.create_box(MPI.COMM_WORLD, [np.array([0, 0]), np.array([1, 1])],[nx, ny], mesh.CellType.quadrilateral)
         #domain = mesh.create_box(MPI.COMM_WORLD, [[0.0, 0.0], [1.0, 1.0]], [nx, ny],mesh.CellType.quadrilateral)
         domain = mesh.create_unit_square(MPI.COMM_WORLD, nx, ny, mesh.CellType.quadrilateral)
